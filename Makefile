@@ -4,7 +4,7 @@ install:
 
 .PHONY: test
 test:
-	pipenv run pytest $(TEST_TARGET) || true
+	pipenv run pytest $(TEST_TARGET)
 
 .PHONY: dev-deploy
 dev-deploy: 
