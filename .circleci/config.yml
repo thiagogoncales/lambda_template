@@ -57,6 +57,15 @@ jobs:
 
     steps:
       - checkout
+
+      # this is slow. build a custom docker image and use that
+      - run:
+          name: Install node and npm
+          command: |
+            curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+            sudo apt-get install -y nodejs
+            node --version && npm -v
+
       - run:
           name: Setup serverless
           command: |
