@@ -58,9 +58,13 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Deploy test
-        command: |
-          make deploy
+          name: Deploying
+          command: |
+            echo "hup"
+      - run:
+          name: Actually deploying
+          command: |
+            make deploy 
 
 workflows:
   version: 2
