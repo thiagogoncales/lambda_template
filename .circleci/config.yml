@@ -47,8 +47,8 @@ jobs:
           destination: test-reports
 
   deploy:
-    machine:
-      enabled: true
+    docker:
+      - image: circleci/python:3.6.1
 
     environment:
       MY_ENV_VAR: "such env var"
