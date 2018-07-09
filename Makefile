@@ -13,3 +13,7 @@ dev-deploy:
 .PHONY: dev-remove
 dev-remove: 
 	@./deployment/dev-remove.sh
+
+.PHONY: deploy
+deploy:
+	@echo $(MY_ENV_VAR)
