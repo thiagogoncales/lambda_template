@@ -16,4 +16,4 @@ dev-remove:
 
 .PHONY: deploy
 deploy:
-	@echo $(MY_ENV_VAR)
+	@./deployment/prod-deploy.sh

@@ -1,2 +1,2 @@
 def get_hello():
-    return 'hello'
+    return 'hello - new deployment'

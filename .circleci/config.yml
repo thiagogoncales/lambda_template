@@ -58,9 +58,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Deploying
+          name: Setup serverless
           command: |
-            echo "hup"
+              sudo npm i -g serverless
+              npm install
+
       - run:
           name: Actually deploying
           command: |
