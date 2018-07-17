@@ -22,10 +22,11 @@ Add this to all users that want to use serverless and any CI client. This only r
                 "logs:Describe*",
                 "logs:Get*",
                 "logs:TestMetricFilter",
-                "logs:FilterLogEvents"
+                "logs:FilterLogEvents",
                 "ec2:DescribeSecurityGroups",
                 "ec2:DescribeSubnets",
                 "s3:GetObject",
+                "s3:GetBucketLocation",
                 "s3:List*",
                 "apigateway:GET",
                 "iam:List*",
@@ -54,7 +55,7 @@ Add this to any CI clients or users that want to deploy to production. Replace `
             "Effect": "Allow",
             "Action": [
                 "cloudformation:Create*",
-                "cloudformation:Update*",
+                "cloudformation:Update*"
             ],
             "Resource": "arn:aws:cloudformation:*:*:stack/${service_name}-production*"
         },
@@ -198,19 +199,6 @@ Add this to any developer that should have no write access to production
             ],
             "Effect": "Allow",
             "Resource": "arn:aws:logs:*:*:log-group:/aws/lambda/${service_name}-*:log-stream:*"
-        },
-        {
-            "Sid": "ResourceDeniedLogWritersForSlsFunctionProductionDeploy",
-            "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:DeleteLogGroup",
-                "logs:DeleteLogStream",
-                "logs:DescribeLogStreams",
-                "logs:FilterLogEvents"
-            ],
-            "Effect": "Deny",
-            "Resource": "arn:aws:logs:*:*:log-group:/aws/lambda/${service_name}-production*:log-stream:*"
         },
         {
             "Sid": "ResourceDeniedLogWritersForSlsFunctionProductionDeploy",
