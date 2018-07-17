@@ -99,6 +99,17 @@ Add this to any CI clients or users that want to deploy to production. Replace `
             "Resource": "arn:aws:logs:*:*:log-group:/aws/lambda/${service_name}-production*:log-stream:*"
         },
         {
+            "Sid": "ResourceBoundS3ReadsForSlsFunctionNonProductionDeploy",
+            "Effect": "Allow",
+            "Action": [
+                "s3:Get*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::${deployment_bucket}"
+            ]
+        },
+        {
             "Sid": "ResourceBoundS3WritersForSlsFunctionProductionDeploy",
             "Effect": "Allow",
             "Action": [
@@ -213,6 +224,17 @@ Add this to any developer that should have no write access to production
             ],
             "Effect": "Deny",
             "Resource": "arn:aws:logs:*:*:log-group:/aws/lambda/${service_name}-production*:log-stream:*"
+        },
+        {
+            "Sid": "ResourceBoundS3ReadsForSlsFunctionNonProductionDeploy",
+            "Effect": "Allow",
+            "Action": [
+                "s3:Get*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::${deployment_bucket}"
+            ]
         },
         {
             "Sid": "ResourceBoundS3WritersForSlsFunctionNonProductionDeploy",
