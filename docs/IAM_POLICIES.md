@@ -1,4 +1,4 @@
-#IAM Policies required
+# IAM Policies required
 
 In order to be able to use `serverless` with AWS, you need to ensure your AWS IAM users have these policies
 
