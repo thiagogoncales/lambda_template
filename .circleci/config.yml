@@ -80,7 +80,7 @@ jobs:
       - run:
           name: Actually deploying
           command: |
-            make deploy 
+            make prod-deploy 
 
 workflows:
   version: 2
