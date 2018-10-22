@@ -93,3 +93,18 @@ workflows:
           filters:
             branches:
               only: master
+
+## For manual deployment, instead do
+#      - hold:
+#          type: approval
+#          requires:
+#            - build
+#          filters:
+#            branches:
+#              only: master
+#      - deploy:
+#          requires:
+#            - hold
+#          filters:
+#            branches:
+#              only: master
